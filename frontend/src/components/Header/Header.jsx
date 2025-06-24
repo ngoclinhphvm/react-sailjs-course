@@ -5,7 +5,21 @@ const Header = () => {
     <header className="header">
       <div className="header-container">
         <h1 className="header-title">My CMS</h1>
-        {/* <img src="../../../public/icons/profile.png" /> */}
+        <div className="header-link-container">
+          <a href="/" className="header-link">
+            Dashboard
+          </a>
+          <a href="/" className="header-link">
+            Products
+          </a>
+          <a href="/" className="header-link">
+            Categories
+          </a>
+          <a href="/" className="header-link">
+            Settings
+          </a>
+        </div>
+        <img src="/icons/profile.png" />
       </div>
     </header>
   );

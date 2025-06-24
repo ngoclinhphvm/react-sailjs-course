@@ -5,11 +5,11 @@
     gap: 1.5rem;
     text-decoration: none;
     padding: 0.5rem;
-    border-radius: 0.5rem;
 }
 
 .sidebar-item:hover {
     background-color: #EEEFE0;
+    border-radius: 0.5rem;
 }
 
 .sidebar-item img {
@@ -29,7 +29,6 @@
     height: 100vh;
     min-width: 18rem;
     background-color: #ffffff;
-    border-radius: 0.5rem;
 }
 
 .sidebar-nav {

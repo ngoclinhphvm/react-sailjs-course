@@ -6,12 +6,16 @@ ul {
     list-style-type: none;
 }
 
+.title {
+    padding-left: 2rem;
+    font-size: 2rem;
+}
+
 li {
-    flex-grow: 1 1 calc(30% - 1rem);
-    width: 25%;
-    min-width: 20rem;
+    width: 20rem;
+    flex-grow: 1;
 } 
 
 .container {
-    flex-grow: 3;
+    /* flex-grow: 3; */
 }
