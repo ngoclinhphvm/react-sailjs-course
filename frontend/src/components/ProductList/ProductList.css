@@ -1,0 +1,17 @@
+ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 1rem;
+    list-style-type: none;
+}
+
+li {
+    flex-grow: 1 1 calc(30% - 1rem);
+    width: 25%;
+    min-width: 20rem;
+} 
+
+.container {
+    flex-grow: 3;
+}
