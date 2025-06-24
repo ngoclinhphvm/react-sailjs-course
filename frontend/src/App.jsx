@@ -1,19 +1,34 @@
-import { useState, useEffect } from "react";
+import Header from "./components/Header/Header";
+import Sidebar from "./components/Sidebar/Sidebar";
+import ProductList from "./components/ProductList/ProductList";
+import "./App.css";
 
 function App() {
-  const [message, setMessage] = useState("Loading...");
-  const url = "http://localhost:1337/api/ping";
-  
-  useEffect(() => {
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => setMessage(data.message))
-      .catch((err) => setMessage("Error fetching API: ", err));
-  });
+  const products = [
+    {
+      name: "Chocolate",
+      price: "20",
+      image: "../public/images/chocolate.webp",
+    },
+    {
+      name: "Barista Blend",
+      price: "10",
+      image: "../public/images/barista_blend.webp",
+    },
+    {
+      name: "Coffee",
+      price: "10",
+      image: "../public/images/coffee.webp",
+    },
+  ];
+
   return (
     <>
-      <h1>Welcome to my CMS</h1>
-      <p>API says: {message}</p>
+      <Header />
+      <main className="content">
+        <Sidebar />
+        <ProductList products={products} />
+      </main>
     </>
   );
 }
