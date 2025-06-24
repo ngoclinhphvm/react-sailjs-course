@@ -27,11 +27,15 @@
     font-family: 'Inter';
     font-size: 1.3rem;
     font-weight: 450;
-    color: #819A91;
+    color: #808080;
 }
 
+/* .header-link:visited {
+    color: #0000ff;
+} */
+
 .header img {
-    width: 4rem;
+    width: 3rem;
     object-fit: contain;
     margin-right: 2rem;
 }
