@@ -1,21 +1,22 @@
 import "./Sidebar.css";
 
+const SidebarItem = ({ iconPath, label }) => {
+  return (
+    <a href="/profile" className="sidebar-item">
+      <img src={iconPath} />
+      <div className="label">{label}</div>
+    </a>
+  );
+};
+
 const Sidebar = () => {
   return (
     <aside className="sidebar">
       <nav className="sidebar-nav">
-        <a href="/profile" className="sidebar-link">
-          Dashboard
-        </a>
-        <a href="/settings" className="sidebar-link">
-          Products
-        </a>
-        <a href="/about" className="sidebar-link">
-          Categories
-        </a>
-        <a href="/faq" className="sidebar-link">
-          Settings
-        </a>
+        <SidebarItem iconPath="/icons/dashboard.png" label="Dashboard" />
+        <SidebarItem iconPath="/icons/products.png" label="Products" />
+        <SidebarItem iconPath="/icons/category.png" label="Categories" />
+        <SidebarItem iconPath="/icons/settings.png" label="Settings" />
       </nav>
     </aside>
   );
