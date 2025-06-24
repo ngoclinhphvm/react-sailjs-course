@@ -1,0 +1,20 @@
+.sidebar {
+    height: 100vh;
+    min-width: 10rem;
+    background-color: lightblue;
+    flex-grow: 1;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+    align-items: center;
+    font-weight: 550;
+}
+
+.sidebar-link {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2rem;
+}
