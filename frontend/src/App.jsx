@@ -8,17 +8,17 @@ function App() {
     {
       name: "Chocolate",
       price: "20",
-      image: "../public/images/chocolate.webp",
+      image: "/images/chocolate.webp",
     },
     {
       name: "Barista Blend",
       price: "10",
-      image: "../public/images/barista_blend.webp",
+      image: "/images/barista_blend.webp",
     },
     {
       name: "Coffee",
       price: "10",
-      image: "../public/images/coffee.webp",
+      image: "/images/coffee.webp",
     },
   ];
 
