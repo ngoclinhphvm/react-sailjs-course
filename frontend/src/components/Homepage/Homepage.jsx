@@ -1,10 +1,21 @@
 import "./Homepage.css";
+import { useState } from "react";
 import Header from "../Header/Header";
 import Sidebar from "../Sidebar/Sidebar";
 import ProductList from "../ProductList/ProductList";
+import ProductForm from "../ProductForm/ProductForm";
 
 export default function Homepage() {
-  const products = [
+  function handleAddProduct(product) {
+    const defaultImage = "/images/coffee.webp";
+    const newProduct = {
+      ...product,
+      image: defaultImage,
+    };
+    setProducts([...products, newProduct]);
+  }
+
+  const initialProducts = [
     {
       name: "Chocolate",
       price: "20",
@@ -21,12 +32,18 @@ export default function Homepage() {
       image: "/images/coffee.webp",
     },
   ];
+
+  const [products, setProducts] = useState(initialProducts);
+
   return (
     <div className="homepage">
       <Header />
-      <main className="content">
+      <main>
         <Sidebar />
-        <ProductList products={products} />
+        <div className="content">
+          <ProductForm onAddProduct={handleAddProduct} />
+          <ProductList products={products} />
+        </div>
       </main>
     </div>
   );
