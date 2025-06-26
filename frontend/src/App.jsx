@@ -1,36 +1,8 @@
-import Header from "./components/Header/Header";
-import Sidebar from "./components/Sidebar/Sidebar";
-import ProductList from "./components/ProductList/ProductList";
+import Homepage from "./components/Homepage/Homepage";
 import "./App.css";
 
 function App() {
-  const products = [
-    {
-      name: "Chocolate",
-      price: "20",
-      image: "/images/chocolate.webp",
-    },
-    {
-      name: "Barista Blend",
-      price: "10",
-      image: "/images/barista_blend.webp",
-    },
-    {
-      name: "Coffee",
-      price: "10",
-      image: "/images/coffee.webp",
-    },
-  ];
-
-  return (
-    <>
-      <Header />
-      <main className="content">
-        <Sidebar />
-        <ProductList products={products} />
-      </main>
-    </>
-  );
+  return <Homepage />;
 }
 
 export default App;
