@@ -4,7 +4,7 @@
     align-items: center;
     gap: 1.5rem;
     text-decoration: none;
-    padding: 0.5rem;
+    padding: 0.7rem 0.7rem 0.7rem 2rem;
 }
 
 .sidebar-item:hover {
@@ -16,19 +16,12 @@
     width: 1.2rem;
 }
 
-.sidebar-item .label {
-    text-align: center;
-    font-family: "Inter", sans-serif;
-    font-weight: 400;
-    font-size: 1.3rem;
-    color: #2b2f2d;
-}
-
 .sidebar {
     padding: 0.5rem;
     height: 100vh;
     min-width: 18rem;
     background-color: #ffffff;
+    font-family: 'Inter';
 }
 
 .sidebar-nav {
@@ -36,5 +29,21 @@
     flex-direction: column;
     gap: 0.2rem;
     align-items: stretch;
-    font-weight: 550;
 }
+
+.sidebar-item-label {
+    font-size: 1.3rem;
+    color: #000000;
+}
+
+.sidebar-item img {
+    width: 1.5rem;
+}
+
+.sidebar-title {
+    margin-left: 1.3rem;
+    font-weight: 600;
+    font-family: "Bitter";
+    font-size: 1.6rem;
+}
+

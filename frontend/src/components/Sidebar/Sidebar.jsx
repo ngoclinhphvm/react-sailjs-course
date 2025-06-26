@@ -1,10 +1,10 @@
 import "./Sidebar.css";
 
-const SidebarItem = ({ iconPath, label }) => {
+const SidebarItem = ({ iconPath, itemLabel }) => {
   return (
-    <a href="/profile" className="sidebar-item">
+    <a href="/" className="sidebar-item">
       <img src={iconPath} />
-      <div className="label">{label}</div>
+      <div className="sidebar-item-label">{itemLabel}</div>
     </a>
   );
 };
@@ -12,11 +12,12 @@ const SidebarItem = ({ iconPath, label }) => {
 const Sidebar = () => {
   return (
     <aside className="sidebar">
+      <h2 className="sidebar-title">Menu</h2>
       <nav className="sidebar-nav">
-        <SidebarItem iconPath="/icons/dashboard.png" label="Dashboard" />
-        <SidebarItem iconPath="/icons/products.png" label="Products" />
-        <SidebarItem iconPath="/icons/category.png" label="Categories" />
-        <SidebarItem iconPath="/icons/settings.png" label="Settings" />
+        <SidebarItem iconPath="/icons/dashboard.png" itemLabel="Dashboard" />
+        <SidebarItem iconPath="/icons/products.png" itemLabel="Products" />
+        <SidebarItem iconPath="/icons/category.png" itemLabel="Categories" />
+        <SidebarItem iconPath="/icons/settings.png" itemLabel="Settings" />
       </nav>
     </aside>
   );
