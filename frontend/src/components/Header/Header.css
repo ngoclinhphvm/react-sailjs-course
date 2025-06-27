@@ -1,14 +1,9 @@
 .header {
-    width: 100%;
-    height: auto;
-    background-color: #ffffff;
-    box-shadow: 10px 5px 5px lightgray;
-}
-
-.header-container {
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: space-between;
+    box-sizing: border-box;
+    font-family: 'Inter';
 }
 
 .header-title {
@@ -17,28 +12,84 @@
     color: black;
 }
 
-.header-link-container {
+.header-actions {
+    margin-right: 3rem;
     display: flex;
-    gap: 2rem;
+    justify-content: center;
     align-items: center;
+    gap: 0.5rem;
 }
 
+
 @media (max-width: 70rem) {
-  .header-link-container, .header img {
+  .header-actions {
     display: none;
   }
 }
 
-.header-link {
-    text-decoration: none;
-    font-family: 'Bitter';
-    font-size: 1.2rem;
-    font-weight: 450;
-    color: #808080;
+.search-bar {
+    width: 20rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: white;
+    height: 3rem;
+    border-radius: 2rem;
+    padding: 0.2rem
 }
 
-.header img {
-    width: 3rem;
+.search-bar button, input {
+    background-color: transparent;
+    border: none;
+    height: 80%;
+}
+
+.search-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input {
+    padding: .5rem;
+    width: 15rem;
+    font-size: 1.2rem;
+    outline: none;
+}
+
+.search-button img {
+    height: 70%;
     object-fit: contain;
-    margin-right: 2rem;
+    cursor: pointer;
+}
+
+.create-button {
+    background-color: #000000;
+    color: #ffffff;
+    font-size: 1.2rem;
+    height: 3rem;
+    border-radius: 2rem;
+    padding: 0 1.5rem;
+}
+
+.chip {
+    width: 3rem;
+    height: 3rem;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+}
+
+.chip img {
+    width: 70%;
+    height: auto;
+}
+
+.chip.profile img {
+    width: 100%;
+    border-radius: 50%;
 }
