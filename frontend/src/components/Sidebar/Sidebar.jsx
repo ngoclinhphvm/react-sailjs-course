@@ -12,8 +12,7 @@ const SidebarItem = ({ iconPath, itemLabel }) => {
 const Sidebar = () => {
   return (
     <aside className="sidebar">
-      <h2 className="sidebar-title">Menu</h2>
-      <nav className="sidebar-nav">
+      <nav>
         <SidebarItem iconPath="/icons/dashboard.png" itemLabel="Dashboard" />
         <SidebarItem iconPath="/icons/products.png" itemLabel="Products" />
         <SidebarItem iconPath="/icons/category.png" itemLabel="Categories" />
