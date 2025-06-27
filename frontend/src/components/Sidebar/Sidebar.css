@@ -2,6 +2,7 @@
     height: 100vh;
     min-width: 17rem;
     font-family: 'Inter';
+    padding: 1rem;
 } 
 
 .sidebar nav {
@@ -25,13 +26,13 @@
 }
 
 .sidebar-item-label {
-    font-size: 1rem;
+    font-size: 1.1rem;
     color: #393E46;
 }
 
 .sidebar-item:hover {
     background-color: #ffffff;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
 }
 
 .sidebar-item:hover .sidebar-item-label {
