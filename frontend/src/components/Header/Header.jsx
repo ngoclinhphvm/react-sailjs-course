@@ -14,7 +14,7 @@ function SearchBar() {
 const Header = () => {
   return (
     <header className="header">
-      <h1 className="header-title">My CMS</h1>
+      <h1 className="header-title">Dashboard</h1>
       <div className="header-actions">
         <SearchBar />
         <button className="create-button">Create</button>

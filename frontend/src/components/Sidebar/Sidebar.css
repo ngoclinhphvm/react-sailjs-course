@@ -1,8 +1,9 @@
 .sidebar {
     height: 100vh;
-    min-width: 17rem;
+    min-width: 18rem;
     font-family: 'Inter';
-    padding: 1rem;
+    padding: 0.5rem;
+    padding-top: 0;
 } 
 
 .sidebar nav {
