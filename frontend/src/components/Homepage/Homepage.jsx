@@ -12,7 +12,7 @@ export default function Homepage() {
       ...product,
       image: defaultImage,
     };
-    setProducts([...products, newProduct]);
+    setProducts([newProduct, ...products]);
   }
 
   const initialProducts = [

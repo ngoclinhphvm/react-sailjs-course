@@ -21,7 +21,14 @@ export default function ProductForm({ onAddProduct }) {
       <form className="product-form" onSubmit={handleSubmit}>
         <p>
           <label htmlFor="name">Product Name: </label>
-          <input type="text" name="name" id="name" onChange={handleChange} />
+          <input
+            type="text"
+            name="name"
+            id="name"
+            onChange={handleChange}
+            value={formData.name}
+            autoComplete="false"
+          />
         </p>
         <p>
           <label for="price">Price: </label>
@@ -30,6 +37,7 @@ export default function ProductForm({ onAddProduct }) {
             name="price"
             id="price"
             onChange={handleChange}
+            value={formData.price}
           />
         </p>
         <p className="button">
