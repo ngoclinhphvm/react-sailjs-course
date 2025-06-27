@@ -41,8 +41,8 @@ export default function Homepage() {
       <main>
         <Sidebar />
         <div className="content">
-          {/* <ProductForm onAddProduct={handleAddProduct} /> */}
           <ProductList products={products} />
+          <ProductForm onAddProduct={handleAddProduct} />
         </div>
       </main>
     </div>
