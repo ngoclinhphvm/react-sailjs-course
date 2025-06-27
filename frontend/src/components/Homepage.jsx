@@ -1,9 +1,8 @@
-import "./Homepage.css";
 import { useState } from "react";
-import Header from "../Header/Header";
-import Sidebar from "../Sidebar/Sidebar";
-import ProductList from "../ProductList/ProductList";
-import ProductForm from "../ProductForm/ProductForm";
+import Header from "./Header";
+import Sidebar from "./Sidebar";
+import ProductList from "./ProductList";
+import ProductForm from "./ProductForm";
 
 export default function Homepage() {
   function handleAddProduct(product) {
@@ -36,11 +35,11 @@ export default function Homepage() {
   const [products, setProducts] = useState(initialProducts);
 
   return (
-    <div className="homepage">
+    <div className="bg-primary-light flex flex-col">
       <Header />
-      <main>
+      <main className="flex flex-row p-1">
         <Sidebar />
-        <div className="content">
+        <div className="flex flex-1 flex-row flex-wrap gap-2 rounded-2xl">
           <ProductList products={products} />
           <ProductForm onAddProduct={handleAddProduct} />
         </div>

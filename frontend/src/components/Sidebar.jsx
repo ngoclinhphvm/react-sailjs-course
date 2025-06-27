@@ -14,7 +14,7 @@ const SidebarItem = ({ iconPath, itemLabel }) => {
 
 const Sidebar = () => {
   return (
-    <aside className="flex w-70 flex-col gap-1">
+    <aside className="hidden w-70 flex-col gap-1 lg:flex">
       <nav className="p-3">
         <SidebarItem iconPath="/icons/dashboard.png" itemLabel="Dashboard" />
         <SidebarItem iconPath="/icons/products.png" itemLabel="Products" />
