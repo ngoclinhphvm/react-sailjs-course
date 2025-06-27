@@ -21,3 +21,9 @@
     background-color: #ffffff;
     border-radius: 1rem;
 }
+
+@media (max-width: 70rem) {
+  .content {
+    flex-direction: column;
+    }
+}

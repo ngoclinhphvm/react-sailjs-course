@@ -39,3 +39,10 @@
 .sidebar-item:hover .sidebar-item-label {
     color: #000000;
 }
+
+
+@media (max-width: 70rem) {
+  .sidebar {
+    display: none;
+    }
+}

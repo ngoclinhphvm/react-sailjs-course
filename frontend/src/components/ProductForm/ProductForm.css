@@ -1,18 +1,25 @@
 .form-container {
     text-align: center;
+    height: fit-content;
+    margin: 0;
+    padding: 1rem;
+    padding-bottom: 2rem;
 }
 
 .form-container h2 {
+    text-align: left;
+    margin-left: 2rem;
     font-size: 2rem;
+    background-color: #ffffff;
 }
 
 .product-form {
     display: inline-block;
     padding: 1rem;
-    border: 1px solid #ccc;
+    border: none;
     border-radius: 1rem;
-
     min-width: 40rem;
+    outline: none;
 }
 
 .product-form label {
