@@ -35,12 +35,12 @@ export default function Homepage() {
   const [products, setProducts] = useState(initialProducts);
 
   return (
-    <div className="bg-primary-light flex flex-col">
+    <div className="h-screen bg-primary-light flex flex-col">
       <Header />
       <main className="flex flex-row p-1">
         <Sidebar />
-        <div className="flex flex-1 flex-row flex-wrap gap-2 rounded-2xl">
-          <ProductList products={products} />
+        <div className="flex flex-1 flex-row flex-wrap gap-4 rounded-2xl p-2">
+          <ProductList view="list" products={products} />
           <ProductForm onAddProduct={handleAddProduct} />
         </div>
       </main>

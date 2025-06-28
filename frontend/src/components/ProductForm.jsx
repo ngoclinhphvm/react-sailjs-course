@@ -15,9 +15,11 @@ export default function ProductForm({ onAddProduct }) {
   }
 
   return (
-    <div className="flex flex-col items-center justify-start gap-4 rounded-2xl bg-white px-10 py-5">
-      <h2 className="text-2xl">Add New Product</h2>
-      <form onSubmit={handleSubmit}>
+    <div className="grow-1 flex flex-col items-center justify-start gap-4 rounded-2xl bg-white px-10 py-5">
+      <div className="w-full">
+        <h2 className="block text-center text-2xl">Add New Product</h2>
+      </div>
+      <form onSubmit={handleSubmit} className="">
         <p className="h-10">
           <label
             htmlFor="name"
@@ -33,7 +35,7 @@ export default function ProductForm({ onAddProduct }) {
             value={formData.name}
             autoComplete="false"
             required
-            className="ml-4 h-3/4 rounded-sm bg-white pl-1 outline-none border-1 border-black"
+            className="ml-4 h-3/4 rounded-sm border-1 border-black bg-white pl-1 outline-none"
           />
         </p>
         <p className="h-10">
@@ -47,7 +49,7 @@ export default function ProductForm({ onAddProduct }) {
             onChange={handleChange}
             value={formData.price}
             required
-            className="ml-4 h-3/4 rounded-sm bg-white pl-1 outline-none border-1 border-black"
+            className="ml-4 h-3/4 rounded-sm border-1 border-black bg-white pl-1 outline-none"
           />
         </p>
         <p className="ml-40 w-40 rounded-lg bg-green-700 text-center">

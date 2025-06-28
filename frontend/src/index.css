@@ -3,7 +3,6 @@
 * {
   box-sizing: border-box;
   font-family: Bitter, Helvetica, Arial, sans-serif;
-  /* line-height: 1.5; */
 }
 
 ::root {
@@ -12,5 +11,4 @@
 
 @theme {
   --color-primary-light: #f1f1f1;
-
 }
