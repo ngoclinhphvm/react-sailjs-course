@@ -5,27 +5,21 @@ import ProductList from "./ProductList";
 import ProductForm from "./ProductForm";
 
 export default function Homepage() {
-  function handleAddProduct(product) {
-    const defaultImage = "/images/coffee.webp";
-    const newProduct = {
-      ...product,
-      image: defaultImage,
-    };
-    setProducts([newProduct, ...products]);
-  }
-
   const initialProducts = [
     {
+      id: 1,
       name: "Chocolate",
       price: "20",
       image: "/images/chocolate.webp",
     },
     {
+      id: 2,
       name: "Barista Blend",
       price: "10",
       image: "/images/barista_blend.webp",
     },
     {
+      id: 3,
       name: "Coffee",
       price: "10",
       image: "/images/coffee.webp",
@@ -34,8 +28,30 @@ export default function Homepage() {
 
   const [products, setProducts] = useState(initialProducts);
 
+  function handleAddProduct(product) {
+    const idExists = products.some(
+      (existingProduct) => existingProduct.id === parseInt(product.id),
+    );
+
+    if (idExists) {
+      alert(
+        `Product with ID ${product.id} already exists. Please use a different ID.`,
+      );
+      return false; 
+    }
+
+    const defaultImage = "/images/coffee.webp";
+    const newProduct = {
+      ...product,
+      id: parseInt(product.id), 
+      image: defaultImage,
+    };
+    setProducts([newProduct, ...products]);
+    return true; 
+  }
+
   return (
-    <div className="h-screen bg-primary-light flex flex-col">
+    <div className="bg-primary-light flex h-screen flex-col">
       <Header />
       <main className="flex flex-row p-1">
         <Sidebar />
