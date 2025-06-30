@@ -1,7 +1,20 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function ProductForm({ onAddProduct, onDeleteProduct }) {
-  const [formData, setFormData] = useState({ id: "", name: "", price: "" });
+export default function ProductForm({
+  modify = false,
+  product = null,
+  onAddProduct,
+  onModifyProduct,
+}) {
+  const [formData, setFormData] = useState(
+    product || { id: "", name: "", price: "" },
+  );
+
+  useEffect(() => {
+    if (product) {
+      setFormData(product);
+    }
+  }, [product]);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -10,7 +23,11 @@ export default function ProductForm({ onAddProduct, onDeleteProduct }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    const success = onAddProduct(formData);
+
+    const success =
+      modify == true
+        ? onModifyProduct(product.id, formData)
+        : onAddProduct(formData);
     if (success !== false) {
       setFormData({ id: "", name: "", price: "" });
     }
@@ -19,7 +36,9 @@ export default function ProductForm({ onAddProduct, onDeleteProduct }) {
   return (
     <div className="flex grow-1 flex-col items-center justify-start gap-4 rounded-2xl bg-white px-10 py-5">
       <div className="w-full">
-        <h2 className="block text-center text-2xl">Add New Product</h2>
+        <h2 className="block text-center text-2xl">
+          {modify ? "Modify " : "Add New "} Product
+        </h2>
       </div>
       <form onSubmit={handleSubmit} className="">
         <p className="h-10">
@@ -35,6 +54,7 @@ export default function ProductForm({ onAddProduct, onDeleteProduct }) {
             autoComplete="false"
             required
             className="ml-4 h-3/4 rounded-sm border-1 border-black bg-white pl-1 outline-none"
+            disabled={modify}
           />
         </p>
         <p className="h-10">
@@ -56,7 +76,10 @@ export default function ProductForm({ onAddProduct, onDeleteProduct }) {
           />
         </p>
         <p className="h-10">
-          <label for="price" className="inline-block w-35 text-right text-lg">
+          <label
+            htmlFor="price"
+            className="inline-block w-35 text-right text-lg"
+          >
             Price:
           </label>
           <input
@@ -71,7 +94,7 @@ export default function ProductForm({ onAddProduct, onDeleteProduct }) {
         </p>
         <p className="ml-40 w-40 rounded-lg bg-green-700 text-center">
           <button type="submit" className="p-2 font-bold text-white uppercase">
-            Add Product
+            {modify ? "Save changes" : "Add Product"}
           </button>
         </p>
       </form>

@@ -1,4 +1,4 @@
-const Product = ({ name, price, image, view = "grid", onDelete }) => {
+const Product = ({ name, price, image, view = "grid", onDelete, onModify }) => {
   // TODO: make this grow as its container grows
   return view == "grid" ? (
     <div className="flex max-w-md min-w-xs flex-col items-center justify-center border-e-red-100">
@@ -20,10 +20,13 @@ const Product = ({ name, price, image, view = "grid", onDelete }) => {
         <div className="w-20 overflow-hidden text-ellipsis whitespace-nowrap">
           ${price}
         </div>
-        <img
-          src="https://img.icons8.com/fluency-systems-regular/48/create-new.png"
-          className="border-full size-8 cursor-pointer rounded-full border-1 border-black p-1"
-        />
+        {/* Modify button */}
+        <button onClick={onModify}>
+          <img
+            src="https://img.icons8.com/fluency-systems-regular/48/create-new.png"
+            className="border-full size-8 cursor-pointer rounded-full border-1 border-black p-1"
+          />
+        </button>
         {/* Delete button */}
         <button onClick={onDelete}>
           <img

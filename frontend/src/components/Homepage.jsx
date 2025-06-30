@@ -27,6 +27,8 @@ export default function Homepage() {
   ];
 
   const [products, setProducts] = useState(initialProducts);
+  const [modifyingProduct, setModifyingProduct] = useState(false);
+  const [productToModifyId, setProductToModifyId] = useState(null);
 
   function handleAddProduct(product) {
     const idExists = products.some(
@@ -54,6 +56,24 @@ export default function Homepage() {
     setProducts(products.filter((product) => product.id !== id));
   }
 
+  /* TODO: there must be a better way to modify a product */
+  function handleModifyProduct(id, modifiedProduct = null) {
+    if (!modifiedProduct) {
+      setModifyingProduct(true);
+      setProductToModifyId(id);
+      return;
+    }
+
+    setProducts(
+      products.map((product) => {
+        return product.id === modifiedProduct.id ? modifiedProduct : product;
+      }),
+    );
+
+    setModifyingProduct(false);
+    setProductToModifyId(null);
+  }
+
   return (
     <div className="bg-primary-light flex h-screen flex-col">
       <Header />
@@ -64,8 +84,18 @@ export default function Homepage() {
             view="list"
             products={products}
             onDelete={handleDeleteProduct}
+            onModify={handleModifyProduct}
           />
-          <ProductForm onAddProduct={handleAddProduct} />
+          <ProductForm
+            onAddProduct={handleAddProduct}
+            modify={modifyingProduct}
+            onModifyProduct={handleModifyProduct}
+            product={
+              modifyingProduct === true
+                ? products.find((p) => p.id === productToModifyId)
+                : null
+            }
+          />
         </div>
       </main>
     </div>

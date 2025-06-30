@@ -1,6 +1,6 @@
 import Product from "./Product";
 
-const ProductList = ({ products, view = "grid", onDelete }) => {
+const ProductList = ({ products, view = "grid", onDelete, onModify }) => {
   return view === "grid" ? (
     <div className="flex-1 rounded-2xl bg-white px-10 py-5">
       <h2 className="text-2xl">Product List</h2>
@@ -17,7 +17,6 @@ const ProductList = ({ products, view = "grid", onDelete }) => {
       <h2 className="mb-2 text-2xl">Product List</h2>
       <ul>
         {products.map((p) => (
-          // TODO: product id
           <li key={p.id} className="min-w-xs flex-auto">
             <Product
               view="list"
@@ -25,6 +24,7 @@ const ProductList = ({ products, view = "grid", onDelete }) => {
               price={p.price}
               image={p.image}
               onDelete={() => onDelete(p.id)}
+              onModify={() => onModify(p.id)}
             />
           </li>
         ))}
