@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 export default function ProductForm({ onAddProduct }) {
-  const [formData, setFormData] = useState({ name: "", price: "" });
+  const [formData, setFormData] = useState({ id: "", name: "", price: "" });
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -10,16 +10,33 @@ export default function ProductForm({ onAddProduct }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    onAddProduct(formData);
-    setFormData({ name: "", price: "" });
+    const success = onAddProduct(formData);
+    if (success !== false) {
+      setFormData({ id: "", name: "", price: "" });
+    }
   }
 
   return (
-    <div className="grow-1 flex flex-col items-center justify-start gap-4 rounded-2xl bg-white px-10 py-5">
+    <div className="flex grow-1 flex-col items-center justify-start gap-4 rounded-2xl bg-white px-10 py-5">
       <div className="w-full">
         <h2 className="block text-center text-2xl">Add New Product</h2>
       </div>
       <form onSubmit={handleSubmit} className="">
+        <p className="h-10">
+          <label htmlFor="id" className="inline-block w-35 text-right text-lg">
+            Identifier:
+          </label>
+          <input
+            type="number"
+            name="id"
+            id="id"
+            onChange={handleChange}
+            value={formData.id}
+            autoComplete="false"
+            required
+            className="ml-4 h-3/4 rounded-sm border-1 border-black bg-white pl-1 outline-none"
+          />
+        </p>
         <p className="h-10">
           <label
             htmlFor="name"
