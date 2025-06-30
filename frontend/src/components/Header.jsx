@@ -27,10 +27,10 @@ function Chip({ imagePath }) {
 
 const Header = () => {
   return (
-    <header className="flex h-20 items-center justify-between">
+    <header className="flex h-20 items-center justify-between p-2">
       <div className="flex h-full w-70 items-center justify-center md:justify-start">
         <img
-          className="h-3/5 w-3/5 object-contain"
+          className="h-4/5 w-full object-contain"
           src="/icons/logo.png"
           alt="Logo"
         />
