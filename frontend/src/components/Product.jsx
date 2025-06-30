@@ -1,4 +1,4 @@
-const Product = ({ name, price, image, view = "grid" }) => {
+const Product = ({ name, price, image, view = "grid", onDelete }) => {
   // TODO: make this grow as its container grows
   return view == "grid" ? (
     <div className="flex max-w-md min-w-xs flex-col items-center justify-center border-e-red-100">
@@ -24,10 +24,13 @@ const Product = ({ name, price, image, view = "grid" }) => {
           src="https://img.icons8.com/fluency-systems-regular/48/create-new.png"
           className="border-full size-8 cursor-pointer rounded-full border-1 border-black p-1"
         />
-        <img
-          src="https://img.icons8.com/ios/50/cancel.png"
-          className="inline-block size-8 cursor-pointer rounded-full"
-        />
+        {/* Delete button */}
+        <button onClick={onDelete}>
+          <img
+            src="https://img.icons8.com/ios/50/cancel.png"
+            className="inline-block size-8 cursor-pointer rounded-full"
+          />
+        </button>
       </div>
     </div>
   );

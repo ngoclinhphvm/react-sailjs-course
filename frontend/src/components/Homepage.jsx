@@ -37,17 +37,21 @@ export default function Homepage() {
       alert(
         `Product with ID ${product.id} already exists. Please use a different ID.`,
       );
-      return false; 
+      return false;
     }
 
     const defaultImage = "/images/coffee.webp";
     const newProduct = {
       ...product,
-      id: parseInt(product.id), 
+      id: parseInt(product.id),
       image: defaultImage,
     };
     setProducts([newProduct, ...products]);
-    return true; 
+    return true;
+  }
+
+  function handleDeleteProduct(id) {
+    setProducts(products.filter((product) => product.id !== id));
   }
 
   return (
@@ -56,7 +60,11 @@ export default function Homepage() {
       <main className="flex flex-row p-1">
         <Sidebar />
         <div className="flex flex-1 flex-row flex-wrap gap-4 rounded-2xl p-2">
-          <ProductList view="list" products={products} />
+          <ProductList
+            view="list"
+            products={products}
+            onDelete={handleDeleteProduct}
+          />
           <ProductForm onAddProduct={handleAddProduct} />
         </div>
       </main>

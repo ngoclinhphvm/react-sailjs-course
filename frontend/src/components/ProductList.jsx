@@ -1,6 +1,6 @@
 import Product from "./Product";
 
-const ProductList = ({ products, view = "grid" }) => {
+const ProductList = ({ products, view = "grid", onDelete }) => {
   return view === "grid" ? (
     <div className="flex-1 rounded-2xl bg-white px-10 py-5">
       <h2 className="text-2xl">Product List</h2>
@@ -13,7 +13,7 @@ const ProductList = ({ products, view = "grid" }) => {
       </ul>
     </div>
   ) : (
-    <div className="grow-1 flex flex-col items-stretch rounded-2xl bg-white px-10 py-5">
+    <div className="flex grow-1 flex-col items-stretch rounded-2xl bg-white px-10 py-5">
       <h2 className="mb-2 text-2xl">Product List</h2>
       <ul>
         {products.map((p) => (
@@ -24,6 +24,7 @@ const ProductList = ({ products, view = "grid" }) => {
               name={p.name}
               price={p.price}
               image={p.image}
+              onDelete={() => onDelete(p.id)}
             />
           </li>
         ))}

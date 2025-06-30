@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function ProductForm({ onAddProduct }) {
+export default function ProductForm({ onAddProduct, onDeleteProduct }) {
   const [formData, setFormData] = useState({ id: "", name: "", price: "" });
 
   function handleChange(event) {
