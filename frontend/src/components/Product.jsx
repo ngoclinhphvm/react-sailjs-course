@@ -1,5 +1,7 @@
 const Product = ({ name, price, image, view = "grid", onDelete, onModify }) => {
   // TODO: make this grow as its container grows
+  const defaultImage =
+    "https://shop.oatside.com/cdn/shop/products/BaristaBlend_2.jpg?v=1722392430&width=1200";
   return view == "grid" ? (
     <div className="flex max-w-md min-w-xs flex-col items-center justify-center border-e-red-100">
       <img src={image} />
@@ -13,7 +15,7 @@ const Product = ({ name, price, image, view = "grid", onDelete, onModify }) => {
       <hr className="text-gray-400" />
       <div className="flex h-10 items-center gap-10">
         <input type="checkbox" className="size-4" />
-        <img src={image} className="h-full min-w-10" />
+        <img src={image ?? defaultImage} className="h-4/5 rounded-xs" />
         <div className="basis-80 overflow-hidden text-lg font-medium text-ellipsis whitespace-nowrap">
           {name}
         </div>
