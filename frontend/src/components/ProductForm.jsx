@@ -42,22 +42,6 @@ export default function ProductForm({
       </div>
       <form onSubmit={handleSubmit} className="">
         <p className="h-10">
-          <label htmlFor="id" className="inline-block w-35 text-right text-lg">
-            Identifier:
-          </label>
-          <input
-            type="number"
-            name="id"
-            id="id"
-            onChange={handleChange}
-            value={formData.id}
-            autoComplete="false"
-            required
-            className="ml-4 h-3/4 rounded-sm border-1 border-black bg-white pl-1 outline-none"
-            disabled={modify}
-          />
-        </p>
-        <p className="h-10">
           <label
             htmlFor="name"
             className="inline-block w-35 text-right text-lg"

@@ -1,55 +1,37 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import ProductList from "./ProductList";
 import ProductForm from "./ProductForm";
 
 export default function Homepage() {
-  const initialProducts = [
-    {
-      id: 1,
-      name: "Chocolate",
-      price: "20",
-      image: "/images/chocolate.webp",
-    },
-    {
-      id: 2,
-      name: "Barista Blend",
-      price: "10",
-      image: "/images/barista_blend.webp",
-    },
-    {
-      id: 3,
-      name: "Coffee",
-      price: "10",
-      image: "/images/coffee.webp",
-    },
-  ];
+  const [products, setProducts] = useState([]);
 
-  const [products, setProducts] = useState(initialProducts);
+  useEffect(() => {
+    fetch("/api/products")
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.error("Failed to fetch products", err));
+  }, []);
+
   const [modifyingProduct, setModifyingProduct] = useState(false);
   const [productToModifyId, setProductToModifyId] = useState(null);
 
-  function handleAddProduct(product) {
-    const idExists = products.some(
-      (existingProduct) => existingProduct.id === parseInt(product.id),
-    );
-
-    if (idExists) {
-      alert(
-        `Product with ID ${product.id} already exists. Please use a different ID.`,
-      );
-      return false;
+  async function handleAddProduct(product) {
+    try {
+      const res = await fetch("/api/products", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(product),
+      });
+      if (!res.ok) throw new Error("Failed to add product");
+      const newProduct = await res.json();
+      setProducts([newProduct, ...products]);
+    } catch (err) {
+      alert("Error adding product");
     }
-
-    const defaultImage = "/images/coffee.webp";
-    const newProduct = {
-      ...product,
-      id: parseInt(product.id),
-      image: defaultImage,
-    };
-    setProducts([newProduct, ...products]);
-    return true;
   }
 
   function handleDeleteProduct(id) {
