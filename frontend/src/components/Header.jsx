@@ -1,4 +1,5 @@
 import Button from "./Button";
+import Input from "./Input";
 
 function SearchBar() {
   return (
@@ -7,7 +8,8 @@ function SearchBar() {
         className="mx-4 h-1/2"
         src="https://img.icons8.com/?size=100&id=14079&format=png&color=000000"
       />
-      <input
+      <Input
+        variant="search"
         type="text"
         placeholder="Search anything..."
         className="text-sm outline-none"

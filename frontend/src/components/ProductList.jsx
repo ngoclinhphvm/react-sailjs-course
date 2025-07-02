@@ -1,7 +1,9 @@
-import React, { useState, useMemo } from "react";
+
+import { useState, useEffect, useMemo } from "react";
 import Product from "./Product";
 import Input from "./Input";
 import Button from "./Button";
+import ModalConfirm from "./ModalConfirm";
 import { useOutletContext } from "react-router";
 
 const PRODUCTS_PER_PAGE = 5;
@@ -12,6 +14,8 @@ const ProductList = ({ view = "list" }) => {
 
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const filteredProducts = useMemo(() => {
     return products.filter((p) =>
@@ -26,10 +30,29 @@ const ProductList = ({ view = "list" }) => {
     return filteredProducts.slice(start, start + PRODUCTS_PER_PAGE);
   }, [filteredProducts, page]);
 
+
   const handlePrev = () => setPage((p) => Math.max(1, p - 1));
   const handleNext = () => setPage((p) => Math.min(totalPages, p + 1));
 
-  React.useEffect(() => {
+  const handleDeleteClick = (product) => {
+    setSelectedProduct(product);
+    setModalOpen(true);
+  };
+
+  const handleConfirmDelete = () => {
+    if (selectedProduct) {
+      handleDeleteProduct(selectedProduct.id);
+    }
+    setModalOpen(false);
+    setSelectedProduct(null);
+  };
+
+  const handleCancelDelete = () => {
+    setModalOpen(false);
+    setSelectedProduct(null);
+  };
+
+  useEffect(() => {
     setPage(1);
   }, [search]);
 
@@ -38,6 +61,7 @@ const ProductList = ({ view = "list" }) => {
       <h2 className="mb-2 text-2xl">Product List</h2>
       <div className="mb-4 flex items-center gap-2">
         <Input
+          variant="search"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
           placeholder="Search..."
@@ -52,26 +76,34 @@ const ProductList = ({ view = "list" }) => {
               name={p.name}
               price={p.price}
               image={p.image}
-              onDelete={() => handleDeleteProduct(p.id)}
+              onDelete={() => handleDeleteClick(p)}
               onModify={() => handleModifyProduct(p.id)}
             />
           </li>
         ))}
       </ul>
       <div className="mt-4 flex items-center justify-center gap-2">
-        <Button onClick={handlePrev} disabled={page === 1}>
+        <Button variant="default" onClick={handlePrev} disabled={page === 1}>
           Prev
         </Button>
         <span>
           Page {page} / {totalPages || 1}
         </span>
         <Button
+          variant="default"
           onClick={handleNext}
           disabled={page === totalPages || totalPages === 0}
         >
           Next
         </Button>
       </div>
+      <ModalConfirm
+        open={modalOpen}
+        title="Confirm Delete"
+        message={selectedProduct ? `Are you sure you want to delete '${selectedProduct.name}'?` : ""}
+        onConfirm={handleConfirmDelete}
+        onCancel={handleCancelDelete}
+      />
     </div>
   );
 };

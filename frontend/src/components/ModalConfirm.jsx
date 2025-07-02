@@ -18,9 +18,9 @@ export default function ModalConfirm({
             className="bg-gray-300 text-black hover:bg-gray-400"
             onClick={onCancel}
           >
-            Huỷ
+            Cancel
           </Button>
-          <Button onClick={onConfirm}>Xác nhận</Button>
+          <Button onClick={onConfirm}>Confirm</Button>
         </div>
       </div>
     </div>

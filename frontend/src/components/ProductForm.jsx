@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router";
 import Button from "./Button";
+import Input from "./Input";
 
-export default function ProductForm({
-  modify = false,
-  product = null,
-}) {
+export default function ProductForm({ modify = false, product = null }) {
   const {
     products,
     handleDeleteProduct,
@@ -57,7 +55,8 @@ export default function ProductForm({
           >
             Product Name:
           </label>
-          <input
+          <Input
+            variant="text"
             type="text"
             name="name"
             id="name"
@@ -75,7 +74,8 @@ export default function ProductForm({
           >
             Price:
           </label>
-          <input
+          <Input
+            variant="number"
             type="number"
             name="price"
             id="price"

@@ -5,7 +5,8 @@ export default function Button({
   ...props
 }) {
   const variants = {
-    default: "p-2 font-bold text-white uppercase",
+    default:
+      "p-2 font-bold rounded-lg text-black uppercase border border-black bg-white",
     "icon-rounded":
       "hidden size-10 items-center justify-center overflow-hidden rounded-full bg-white lg:flex",
     rounded:

@@ -1,4 +1,5 @@
 import Button from "./Button";
+import Input from "./Input";
 
 const Product = ({ name, price, image, view = "grid", onDelete, onModify }) => {
   // TODO: make this grow as its container grows
@@ -16,7 +17,7 @@ const Product = ({ name, price, image, view = "grid", onDelete, onModify }) => {
     <div className="grow-1">
       <hr className="text-gray-400" />
       <div className="flex h-10 items-center gap-10">
-        <input type="checkbox" className="size-4" />
+        <Input variant="checkbox" type="checkbox" className="size-4" />
         <img src={image ?? defaultImage} className="h-4/5 rounded-xs" />
         <div className="basis-80 overflow-hidden text-lg font-medium text-ellipsis whitespace-nowrap">
           {name}
