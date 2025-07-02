@@ -1,11 +1,21 @@
 import { useState, useEffect } from "react";
+import { useOutletContext } from "react-router";
 
 export default function ProductForm({
   modify = false,
   product = null,
-  onAddProduct,
-  onModifyProduct,
+  // onAddProduct,
+  // onModifyProduct,
 }) {
+  const {
+    products,
+    handleDeleteProduct,
+    handleModifyProduct,
+    handleAddProduct,
+    modifyingProduct,
+    productToModifyId,
+  } = useOutletContext();
+
   const [formData, setFormData] = useState(
     product || { id: "", name: "", price: "" },
   );
@@ -26,8 +36,8 @@ export default function ProductForm({
 
     const success =
       modify == true
-        ? onModifyProduct(product.id, formData)
-        : onAddProduct(formData);
+        ? handleModifyProduct(product.id, formData)
+        : handleAddProduct(formData);
     if (success !== false) {
       setFormData({ id: "", name: "", price: "" });
     }

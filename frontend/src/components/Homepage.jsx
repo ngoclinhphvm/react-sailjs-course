@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
+import { Outlet } from "react-router";
 import ProductList from "./ProductList";
 import ProductForm from "./ProductForm";
 
@@ -62,21 +63,15 @@ export default function Homepage() {
       <main className="flex flex-row p-1">
         <Sidebar />
         <div className="flex flex-1 flex-row flex-wrap gap-4 rounded-2xl p-2">
-          <ProductList
-            view="list"
-            products={products}
-            onDelete={handleDeleteProduct}
-            onModify={handleModifyProduct}
-          />
-          <ProductForm
-            onAddProduct={handleAddProduct}
-            modify={modifyingProduct}
-            onModifyProduct={handleModifyProduct}
-            product={
-              modifyingProduct === true
-                ? products.find((p) => p.id === productToModifyId)
-                : null
-            }
+          <Outlet
+            context={{
+              products,
+              handleDeleteProduct,
+              handleModifyProduct,
+              handleAddProduct,
+              modifyingProduct,
+              productToModifyId,
+            }}
           />
         </div>
       </main>

@@ -1,6 +1,15 @@
 import Product from "./Product";
+import { useOutletContext } from "react-router";
+const ProductList = ({ view = "list", onDelete, onModify }) => {
+  const {
+    products,
+    handleDeleteProduct,
+    handleModifyProduct,
+    handleAddProduct,
+    modifyingProduct,
+    productToModifyId,
+  } = useOutletContext();
 
-const ProductList = ({ products, view = "grid", onDelete, onModify }) => {
   return view === "grid" ? (
     <div className="flex-1 rounded-2xl bg-white px-10 py-5">
       <h2 className="text-2xl">Product List</h2>
@@ -23,8 +32,8 @@ const ProductList = ({ products, view = "grid", onDelete, onModify }) => {
               name={p.name}
               price={p.price}
               image={p.image}
-              onDelete={() => onDelete(p.id)}
-              onModify={() => onModify(p.id)}
+              onDelete={() => handleDeleteProduct(p.id)}
+              onModify={() => handleModifyProduct(p.id)}
             />
           </li>
         ))}
