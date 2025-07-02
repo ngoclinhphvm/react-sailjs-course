@@ -25,7 +25,7 @@ function Chip({ imagePath }) {
   );
 }
 
-const Header = () => {
+const Header = ({onToggleTheme}) => {
   return (
     <header className="flex h-20 items-center justify-between p-2">
       <div className="flex h-full w-70 items-center justify-center md:justify-start">
@@ -44,6 +44,12 @@ const Header = () => {
         <SearchBar />
         <button className="hidden h-10 w-fit rounded-3xl bg-black px-4 text-sm text-white lg:block">
           Create
+        </button>
+        <button
+          onClick={onToggleTheme}
+          className="hidden h-10 w-fit rounded-3xl bg-black px-4 text-sm text-white lg:block"
+        >
+          Change theme
         </button>
         <Chip imagePath="https://img.icons8.com/?size=100&id=16008&format=png&color=000000" />
         <Chip imagePath="https://img.icons8.com/?size=100&id=461&format=png&color=000000" />

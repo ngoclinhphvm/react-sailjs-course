@@ -2,11 +2,25 @@ import { useState, useEffect } from "react";
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import { Outlet } from "react-router";
-import ProductList from "./ProductList";
-import ProductForm from "./ProductForm";
 
 export default function Homepage() {
   const [products, setProducts] = useState([]);
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("theme") || "light";
+    setTheme(savedTheme);
+    localStorage.setItem("theme", savedTheme);
+    document.documentElement.classList.toggle("dark", savedTheme === "dark");
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme =
+      localStorage.getItem("theme") === "light" ? "dark" : "light";
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    document.documentElement.classList.toggle("dark", newTheme === "dark");
+  };
 
   useEffect(() => {
     fetch("/api/products")
@@ -58,8 +72,9 @@ export default function Homepage() {
   }
 
   return (
-    <div className="bg-primary-light flex h-screen flex-col">
-      <Header />
+    <div className="bg-primary-light flex h-screen flex-col dark:bg-gray-400">
+      <Header onToggleTheme={toggleTheme} />
+
       <main className="flex flex-row p-1">
         <Sidebar />
         <div className="flex flex-1 flex-row flex-wrap gap-4 rounded-2xl p-2">
