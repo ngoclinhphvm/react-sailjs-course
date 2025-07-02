@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 function SearchBar() {
   return (
     <div className="hidden h-10 w-80 items-center rounded-4xl bg-white lg:flex">
@@ -16,16 +18,16 @@ function SearchBar() {
 
 function Chip({ imagePath }) {
   return (
-    <button className="hidden size-10 items-center justify-center overflow-hidden rounded-full bg-white lg:flex">
+    <Button variant="icon-rounded">
       <img
         src={imagePath}
         className="block size-2/3 rounded-full object-contain"
       />
-    </button>
+    </Button>
   );
 }
 
-const Header = ({onToggleTheme}) => {
+const Header = ({ onToggleTheme }) => {
   return (
     <header className="flex h-20 items-center justify-between p-2">
       <div className="flex h-full w-70 items-center justify-center md:justify-start">
@@ -42,15 +44,10 @@ const Header = ({onToggleTheme}) => {
       </div>
       <div className="flex items-center gap-2">
         <SearchBar />
-        <button className="hidden h-10 w-fit rounded-3xl bg-black px-4 text-sm text-white lg:block">
-          Create
-        </button>
-        <button
-          onClick={onToggleTheme}
-          className="hidden h-10 w-fit rounded-3xl bg-black px-4 text-sm text-white lg:block"
-        >
+        <Button variant="rounded">Create</Button>
+        <Button variant="rounded" onClick={onToggleTheme}>
           Change theme
-        </button>
+        </Button>
         <Chip imagePath="https://img.icons8.com/?size=100&id=16008&format=png&color=000000" />
         <Chip imagePath="https://img.icons8.com/?size=100&id=461&format=png&color=000000" />
         <Chip imagePath="https://images.genius.com/196ba084f993ae312b3f77be14bfd964.1000x1000x1.png" />

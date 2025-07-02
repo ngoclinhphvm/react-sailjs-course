@@ -1,11 +1,10 @@
 import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router";
+import Button from "./Button";
 
 export default function ProductForm({
   modify = false,
   product = null,
-  // onAddProduct,
-  // onModifyProduct,
 }) {
   const {
     products,
@@ -87,9 +86,13 @@ export default function ProductForm({
           />
         </p>
         <p className="ml-40 w-40 rounded-lg bg-green-700 text-center">
-          <button type="submit" className="p-2 font-bold text-white uppercase">
+          <Button
+            variant="default"
+            type="submit"
+            className="p-2 font-bold text-white uppercase"
+          >
             {modify ? "Save changes" : "Add Product"}
-          </button>
+          </Button>
         </p>
       </form>
     </div>

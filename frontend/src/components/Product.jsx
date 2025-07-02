@@ -1,3 +1,5 @@
+import Button from "./Button";
+
 const Product = ({ name, price, image, view = "grid", onDelete, onModify }) => {
   // TODO: make this grow as its container grows
   const defaultImage =
@@ -23,19 +25,19 @@ const Product = ({ name, price, image, view = "grid", onDelete, onModify }) => {
           ${price}
         </div>
         {/* Modify button */}
-        <button onClick={onModify}>
+        <Button variant="icon" onClick={onModify}>
           <img
             src="https://img.icons8.com/fluency-systems-regular/48/create-new.png"
             className="border-full size-8 cursor-pointer rounded-full border-1 border-black p-1"
           />
-        </button>
+        </Button>
         {/* Delete button */}
-        <button onClick={onDelete}>
+        <Button variant="icon" onClick={onDelete}>
           <img
             src="https://img.icons8.com/ios/50/cancel.png"
             className="inline-block size-8 cursor-pointer rounded-full"
           />
-        </button>
+        </Button>
       </div>
     </div>
   );
